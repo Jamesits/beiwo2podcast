@@ -38,7 +38,7 @@ require_once('config.php');
     <?php if ($display_test_server_notify == true) {?>
     <div class="alert alert-warning" role="alert">
       <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-      <strong>注意！</strong> 这是一台测试服务器，仅供程序开发阶段测试使用，不保证长期有效，也请不要滥用。
+      <strong>注意！</strong> 这是一台测试服务器，仅供程序开发阶段测试使用，不保证长期有效，也请不要滥用。如果需要稳定的服务，你可以<a href="https://github.com/Jamesits/beiwo2podcast">自行部署</a>。
     </div>
     <?php } ?>
     <div class="input-group">
