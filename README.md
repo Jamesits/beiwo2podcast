@@ -10,3 +10,4 @@
 
  * [被窝声次元](http://www.beiwo.ac)
  * [aaronsnoswell/itunes-podcast-feed](https://github.com/aaronsnoswell/itunes-podcast-feed)
+ * [php-curl-class/php-curl-class](https://github.com/php-curl-class/php-curl-class)
