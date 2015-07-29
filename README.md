@@ -2,7 +2,7 @@
 
 [被窝声次元](http://www.beiwo.ac) 转换到 iTunes 兼容 Podcast (RSS 2.0) 格式的程序。
 
-测试服务器：[http://zhjlab.sinaapp.com/lab/beiwo2podcast-master/](https://zhjlab.sinaapp.com/lab/beiwo2podcast-master/)
+测试服务器：[http://zhjlab.sinaapp.com/lab/beiwo2podcast-master/](http://zhjlab.sinaapp.com/lab/beiwo2podcast-master/)
 
 ## 警告
 
