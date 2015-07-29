@@ -26,3 +26,4 @@ if ($curl->error) {
 $songdata0 = json_decode($curl->response, true);
 $userid = $songdata0['items'][0]['user']['objectId'];
 echo '{"soundId": "'.$id.'", "userId": "'.$userid.'"}';
+?>

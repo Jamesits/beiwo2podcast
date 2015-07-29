@@ -69,6 +69,9 @@ function selfURL()
 
 function strleft($s1, $s2) { return substr($s1, 0, strpos($s1, $s2)); }
 
+// from: https://stackoverflow.com/questions/3431280/validation-failed-entityref-expecting
+function encodeHtmlEntitiesForXmlAttribute($s) {return str_replace('&', '&amp;', $s);}
+
 if (!isset($_GET['id']))
     die('错误：缺少用户 ID');
 $userid = $_GET['id'];
@@ -128,19 +131,19 @@ echo '<?xml version="1.0" encoding="utf-8" ?>';
 <rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title><![CDATA[<?php echo $feed_title; ?>]]></title>
-        <link><?php echo $feed_link; ?></link>
-        <atom:link href="<?php echo $feed_self_uri; ?>" rel="self" type="application/rss+xml"/>
-        <generator>beiwo2podcast/<?php echo $version; ?> (+https://github.com/Jamesits/beiwo2podcast)</generator>
-        <itunes:new-feed-url><?php echo $feed_self_uri; ?></itunes:new-feed-url>
+        <link><![CDATA[<?php echo $feed_link; ?>]]></link>
+        <atom:link href="<?php echo encodeHtmlEntitiesForXmlAttribute($feed_self_uri); ?>" rel="self" type="application/rss+xml"/>
+        <generator><![CDATA[beiwo2podcast/<?php echo $version; ?> (+https://github.com/Jamesits/beiwo2podcast)]]></generator>
+        <itunes:new-feed-url><![CDATA[<?php echo $feed_self_uri; ?>]]></itunes:new-feed-url>
         <itunes:author><![CDATA[<?php echo $feed_author; ?>]]></itunes:author>
         <itunes:owner>
             <itunes:name><![CDATA[<?php echo $feed_author; ?>]]></itunes:name>
-            <itunes:email><?php echo $feed_email; ?></itunes:email>
+            <itunes:email><![CDATA[<?php echo $feed_email; ?>]]></itunes:email>
         </itunes:owner>
-        <itunes:image href="<?php echo $feed_image; ?>" />
-        <itunes:explicit><?php echo $feed_explicit; ?></itunes:explicit>
-        <itunes:category text="<?php echo $feed_category; ?>">
-            <itunes:category text="<?php echo $feed_subcategory; ?>" />
+        <itunes:image href="<?php echo encodeHtmlEntitiesForXmlAttribute($feed_image); ?>" />
+        <itunes:explicit><?php echo encodeHtmlEntitiesForXmlAttribute($feed_explicit); ?></itunes:explicit>
+        <itunes:category text="<?php echo encodeHtmlEntitiesForXmlAttribute($feed_category); ?>">
+            <itunes:category text="<?php echo encodeHtmlEntitiesForXmlAttribute($feed_subcategory); ?>" />
         </itunes:category>
         <itunes:summary><![CDATA[<?php echo $feed_description; ?>]]></itunes:summary>
         <category>Music</category>
@@ -163,22 +166,22 @@ echo '<?xml version="1.0" encoding="utf-8" ?>';
         ?>
         <item>
             <title><![CDATA[<?php echo $title; ?>]]></title>
-            <link><?php echo $link; ?></link>
+            <link><![CDATA[<?php echo $link; ?>]]></link>
             <itunes:author><![CDATA[<?php echo $author; ?>]]></itunes:author>
             <itunes:owner><![CDATA[被窝声次元]]></itunes:owner>
-            <itunes:category text="<?php echo $feed_category; ?>">
-                <itunes:category text="<?php echo $feed_subcategory; ?>" />
+            <itunes:category text="<?php echo encodeHtmlEntitiesForXmlAttribute($feed_category); ?>">
+                <itunes:category text="<?php echo encodeHtmlEntitiesForXmlAttribute($feed_subcategory); ?>" />
             </itunes:category>
-            <itunes:image href="<?php echo $image; ?>" />
+            <itunes:image href="<?php echo encodeHtmlEntitiesForXmlAttribute($image); ?>" />
             <itunes:summary><![CDATA[<?php echo $description; ?>]]></itunes:summary>
             <itunes:duration><?php echo $duration; ?></itunes:duration>
-            <category><?php echo $feed_category; ?></category>
+            <category><![CDATA[<?php echo $feed_category; ?>]]></category>
             <duration><?php echo $duration; ?></duration>
             <description><![CDATA[<?php echo $description; ?>]]></description>
-            <comments><?php echo $link; ?></comments>
+            <comments><![CDATA[<?php echo $link; ?>]]></comments>
             <pubDate><?php echo $date; ?></pubDate>
-            <enclosure url="<?php echo $url; ?>" length="<?php echo $size; ?>" type="audio/mpeg" />
-            <guid isPermaLink="true"><?php echo $link; ?></guid>
+            <enclosure url="<?php echo encodeHtmlEntitiesForXmlAttribute($url); ?>" length="<?php echo encodeHtmlEntitiesForXmlAttribute($size); ?>" type="audio/mpeg" />
+            <guid isPermaLink="true"><![CDATA[<?php echo $link; ?>]]></guid>
         </item>
         <?php
         }
