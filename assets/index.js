@@ -51,7 +51,7 @@ function showWarning(url, msg) {
 function showError(msg) {
     hideAll();
     $('.errormsg').text(msg);
-    $('.panel-warning').show();
+    $('.panel-danger').show();
     enableButton();
 }
 
@@ -61,6 +61,7 @@ function getFeedUri(uri) {
         if (result && result.length > 0) {
             userId = result[1];
             showSuccess(getFeedUriByUserId(userId));
+            return;
         }
     }
     for (e in soundIdRegex) {
@@ -68,8 +69,10 @@ function getFeedUri(uri) {
         if (result && result.length > 0) {
             soundId = result[1];
             getUserId(soundId);
+            return;
         }
     }
+    showError('网址无法识别');
 }
 
 function doConvert() {
