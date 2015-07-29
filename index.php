@@ -53,7 +53,8 @@ require_once('config.php');
         <h3 class="panel-title">转换成功</h3>
       </div>
       <div class="panel-body">
-        RSS Feed：<span class="well well-sm feedurl">http://example.com</span>
+        RSS Feed 地址：<span class="well well-sm feedurl">http://example.com</span>
+        你现在可以使用通用型 Podcast 客户端订阅它了。
       </div>
     </div>
     <div class="panel panel-danger" style="display: none;">
@@ -72,6 +73,7 @@ require_once('config.php');
         <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe></div>
         <div class="panel-body">
           RSS Feed：<span class="well well-sm feedurl">http://example.com</span>
+          你现在可以使用通用型 Podcast 客户端订阅它了。
           <div class="errormsg"></div>
         </div>
       </div>
