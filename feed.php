@@ -1,17 +1,13 @@
 <?php
-// beiwo2podcast
-// https://github.com/Jamesits/beiwo2podcast
-// Author: James Swineson
+/**
+ * beiwo2podcast
+ * https://github.com/Jamesits/beiwo2podcast
+ * @author James Swineson
+ * 2015-07-19
+*/
+require_once('config.php');
 require_once('Curl/Curl.php');
-// require_once('Curl/MultiCurl.php');
 use \Curl\Curl;
-header('charset=utf-8');
-$version = '1.1';
-$ua = 'beiwo2podcast/'.$version;
-$default_limit = 15;
-$default_explicit = 'clean';
-$default_category = 'Arts';
-$default_subcategory = 'Performing Arts';
 
 /**
  * Returns the size of a file without downloading it, or -1 if the file
@@ -101,7 +97,7 @@ $userdata = $songdata0['user'];
 // feed metadata vars
 $feed_title = $userdata['nickName'].' - 被窝声次元';
 $feed_link = "http://www.beiwo.ac/users/my?id=".$userid;
-$feed_description = $userdata['mark'].'\n\n由 <a href="https://github.com/Jamesits/beiwo2podcast">beiwo2podcast</a> 生成。';
+$feed_description = $userdata['mark'];
 $feed_copyright = 'Copyright 2014-'.date("Y").' beiwo.ac Inc. All rights reserved.';
 $feed_ttl = 60 * 60 * 24;
 $feed_lang = "zh-cn";
@@ -134,9 +130,9 @@ echo '<?xml version="1.0" encoding="utf-8" ?>';
         <itunes:category text="<?php echo $feed_category; ?>">
             <itunes:category text="<?php echo $feed_subcategory; ?>" />
         </itunes:category>
-        <itunes:summary><?php echo $feed_description; ?></itunes:summary>
+        <itunes:summary><![CDATA[<?php echo $feed_description; ?>]]></itunes:summary>
         <category>Music</category>
-        <description><?php echo $feed_description; ?></description>
+        <description><![CDATA[<?php echo $feed_description; ?>]]></description>
         <language><?php echo $feed_lang; ?></language>
         <copyright><?php echo $feed_copyright; ?></copyright>
         <ttl><?php echo $feed_ttl; ?></ttl>
@@ -162,11 +158,11 @@ echo '<?xml version="1.0" encoding="utf-8" ?>';
                 <itunes:category text="<?php echo $feed_subcategory; ?>" />
             </itunes:category>
             <itunes:image href="<?php echo $image; ?>" />
-            <itunes:summary><![CDATA[<?php echo $description; ?>]]</itunes:summary>
+            <itunes:summary><![CDATA[<?php echo $description; ?>]]></itunes:summary>
             <itunes:duration><?php echo $duration; ?></itunes:duration>
             <category><?php echo $feed_category; ?></category>
             <duration><?php echo $duration; ?></duration>
-            <description><?php echo $description; ?></description>
+            <description><![CDATA[<?php echo $description; ?>]]></description>
             <comments><?php echo $link; ?></comments>
             <pubDate><?php echo $date; ?></pubDate>
             <enclosure url="<?php echo $url; ?>" length="<?php echo $size; ?>" type="audio/mpeg" />
