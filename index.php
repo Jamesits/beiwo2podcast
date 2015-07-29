@@ -20,12 +20,12 @@ require_once('config.php');
   <script src="assets/index.js"></script>
 </head>
 <body>
-  <a href="https://github.com/Jamesits/beiwo2podcast"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+  <a href="https://github.com/Jamesits/beiwo2podcast"><img style="position: absolute; top: 0; right: 0; border: 0;" src="assets/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub" data-canonical-src="assets/forkme_right_gray_6d6d6d.png"></a>
   <div class="container">
     <div class="jumbotron">
       <h1>beiwo2podcast</h1>
       <p><a href="http://www.beiwo.ac">被窝声次元</a> 转换到 iTunes 兼容 Podcast (RSS 2.0) 格式的程序。</p>
-      <p>Version <?php echo $version; ?> by <a href="https://swineson.me">James Swineson</a>, <a href="https://github.com/Jamesits/beiwo2podcast">Github</a></p>
+      <p>Version <?php echo $version; ?> by <a href="https://swineson.me">James Swineson</a>, <a href="https://github.com/Jamesits/beiwo2podcast">Github Repository</a></p>
     </div>
     <div class="alert alert-info" role="alert">
       <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>

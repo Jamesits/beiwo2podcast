@@ -21,27 +21,38 @@ function getFeedUriByUserId(userId) {
     return install_path + 'feed.php?id=' + userId;
 }
 
+function disableButton() {
+    $('#btnsend').text('转换中').attr('disabled', 'disabled');
+}
+
+function enableButton() {
+    $('#btnsend').text('转换为 RSS').removeAttr('disabled');
+}
+
 function hideAll() {
     $('.panel').hide();
 }
 
 function showSuccess(url) {
     hideAll();
-    $('.feedurl').text(url);
+    $('.feedurl').html('<a href="' + url + '">' + url + '</a>');
     $('.panel-success').show();
+    enableButton();
 }
 
 function showWarning(url, msg) {
     hideAll();
-    $('.feedurl').text(url);
+    $('.feedurl').html('<a href="' + url + '">' + url + '</a>');
     $('.errormsg').text(msg);
     $('.panel-warning').show();
+    enableButton();
 }
 
 function showError(msg) {
     hideAll();
     $('.errormsg').text(msg);
     $('.panel-warning').show();
+    enableButton();
 }
 
 function getFeedUri(uri) {
@@ -62,6 +73,7 @@ function getFeedUri(uri) {
 }
 
 function doConvert() {
+    disableButton();
     hideAll();
     uri = $('#fromurl').val();
     getFeedUri(uri);

@@ -18,7 +18,8 @@
 
  1. 下载代码
  2. 部署在支持 PHP 的任何服务器的任何位置
- 3. 访问 index.php
+ 3. 配置 config.php，填写必要信息
+ 4. 访问 index.php
 
 需要 PHP 带有 cURL 支持。支持 SAE 等程序目录不可写的服务器。
 
