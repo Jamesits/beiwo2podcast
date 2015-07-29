@@ -4,7 +4,8 @@ userIdRegex = [
 ];
 soundIdRegex = [
     /beiwo\.ac\/users\/getSoundByIdWithAjax\?.*id\=([0123456789abcdef]+)/,
-    /beiwo\.ac\/users\/audioIndexPc\?.*id\=([0123456789abcdef]+)/
+    /beiwo\.ac\/users\/audioIndexPc\?.*id\=([0123456789abcdef]+)/,
+    /beiwo\.ac\/html\/page\.html\?.*id\=([0123456789abcdef]+)/
 ]
 
 function getUserId(soundId) {
