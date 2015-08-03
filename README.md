@@ -1,6 +1,6 @@
 # beiwo2podcast
 
-[被窝声次元](http://www.beiwo.ac) 转换到 iTunes 兼容 Podcast (RSS 2.0) 格式的程序。
+[被窝声次元](http://www.beiwo.ac)转换到 iTunes 兼容 Podcast (RSS 2.0) 格式的程序。
 
 测试服务器：[http://zhjlab.sinaapp.com/lab/beiwo2podcast-master/](http://zhjlab.sinaapp.com/lab/beiwo2podcast-master/)
 
@@ -12,7 +12,8 @@
 
 ## 已知问题
 
- * iTunes 无法正确读取单集
+ * iTunes 对部分 feed 无法正确读取单集信息
+ * 对于未上传任何音频的用户，会读取到不正确的元数据
 
 ## 使用方法
 
