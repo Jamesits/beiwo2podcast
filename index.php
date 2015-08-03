@@ -24,7 +24,7 @@ require_once('config.php');
   <div class="container">
     <div class="jumbotron">
       <h1>beiwo2podcast</h1>
-      <p><a href="http://www.beiwo.ac">被窝声次元</a> 转换到 iTunes 兼容 Podcast (RSS 2.0) 格式的程序。</p>
+      <p><a href="http://www.beiwo.ac">被窝声次元</a>转换到 iTunes 兼容 Podcast (RSS 2.0) 格式的程序。</p>
       <p>Version <?php echo $version; ?> by <a href="https://swineson.me">James Swineson</a>, <a href="https://github.com/Jamesits/beiwo2podcast">Github Repository</a></p>
     </div>
     <div class="alert alert-info" role="alert">
@@ -35,18 +35,20 @@ require_once('config.php');
       <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
       本程序使用了私有 API。这意味着本程序可能随时失效，或者显示不可预料的数据。
     </div>
-    <?php if ($display_test_server_notify == true) {?>
+    <?php if ($isDevelopingServer == true) {?>
     <div class="alert alert-warning" role="alert">
       <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
       <strong>注意！</strong> 这是一台测试服务器，仅供程序开发阶段测试使用，不保证长期有效，也请不要滥用。如果需要稳定的服务，你可以<a href="https://github.com/Jamesits/beiwo2podcast">自行部署</a>。
     </div>
     <?php } ?>
-    <div class="input-group">
-      <input id="fromurl" type="text" class="form-control" placeholder="在这里粘贴用户主页或音频的 URL...">
-      <span class="input-group-btn">
-        <button id="btnsend" class="btn btn-default" type="button">转换为 RSS</button>
-      </span>
-    </div>
+    <form id="formconvert">
+      <div class="input-group">
+        <input id="fromurl" type="text" class="form-control" placeholder="在这里粘贴用户主页或音频的 URL...">
+        <span class="input-group-btn">
+          <button id="btnsend" class="btn btn-default" type="submit">转换为 RSS</button>
+        </span>
+      </div>
+    </form>
     <div class="panel panel-success" style="display: none;">
       <div class="panel-heading">
         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -63,20 +65,23 @@ require_once('config.php');
         <h3 class="panel-title">转换失败</h3>
       </div>
       <div class="panel-body">
-        <div class="errormsg"></div>
+        <span class="errormsg"></span>
       </div>
     </div>
     <div class="panel panel-warning" style="display: none;">
       <div class="panel-heading">
         <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
         <h3 class="panel-title">注意</h3>
-        <iframe id="tmp_downloadhelper_iframe" style="display: none;"></iframe></div>
-        <div class="panel-body">
+      </div>
+      <div class="panel-body">
           RSS Feed：<span class="well well-sm feedurl">http://example.com</span>
           你现在可以使用通用型 Podcast 客户端订阅它了。
-          <div class="errormsg"></div>
-        </div>
+          <span class="errormsg"></span>
       </div>
+      </div>
+      <footer class="footer">
+        <p><?php echo $ua; ?></p>
+      </footer>
     </div>
   </body>
   </html>

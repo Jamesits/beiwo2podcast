@@ -3,7 +3,7 @@
  * beiwo2podcast
  * https://github.com/Jamesits/beiwo2podcast
  * @author James Swineson
- * 2015-07-19
+ * 2015-08-03
 */
 require_once('config.php');
 require_once('Curl/Curl.php');
@@ -11,7 +11,9 @@ use \Curl\Curl;
 
 header('charset=utf-8');
 
-$id = $_GET['id'];
+if (!isset($_GET['id']) || $_GET['id'] == '') die('{"result": false}');
+$userid = $_GET['id'];
+$limit = (isset($_GET['limit']) && intval($_GET['limit']) > 0) ? intval($_GET['limit']) : $default_limit;
 
 $curl = new Curl();
 $curl->setUserAgent($ua);
@@ -24,7 +26,7 @@ $curl->get('http://www.beiwo.ac/users/myPageDataWithPaging', array(
 if ($curl->error) {
     die('错误 ' . $curl->error_code . '：' . $curl->error_message);
 }
-$songdata0 = json_decode($curl->response, true);
-$userid = $songdata0['items'][0]['user']['objectId'];
-echo '{"soundId": "'.$id.'", "userId": "'.$userid.'"}';
+
+$userdata = json_decode($curl->response, true);
+if (count($userdata['items']) == 0) echo '{"result": false}'; else  echo '{"result": true}';
 ?>

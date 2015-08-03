@@ -18,6 +18,16 @@ function getUserId(soundId) {
     });
 }
 
+function validateAndGetFeedPath(userId) {
+    $.getJSON('validateUser.php', {'id': userId}, function(data){
+        if (data.result) {
+            showSuccess(getFeedUriByUserId(userId));
+        } else {
+            showWarning(getFeedUriByUserId(userId), '该用户未上传任何内容，可能导致程序出错！');
+        }
+    });
+}
+
 function getFeedUriByUserId(userId) {
     return install_path + 'feed.php?id=' + userId;
 }
@@ -61,7 +71,7 @@ function getFeedUri(uri) {
         result = userIdRegex[e].exec(uri);
         if (result && result.length > 0) {
             userId = result[1];
-            showSuccess(getFeedUriByUserId(userId));
+            validateAndGetFeedPath(userId);
             return;
         }
     }
@@ -81,8 +91,14 @@ function doConvert() {
     hideAll();
     uri = $('#fromurl').val();
     getFeedUri(uri);
+    $("#fromurl").focus();
 }
 
 $(function(){
     $('#btnsend').on("click", doConvert);
+    $('#formconvert').submit(function(e){
+        doConvert();
+        e.preventDefault();
+    });
+    $("#fromurl").focus();
 });
