@@ -9,7 +9,7 @@ $version = '1.4';
 $php_curl_class_version = '3.6.7';
 
 // 安装目录
-$install_path = 'https://example.com/beiwo2podcast/';
+$install_path = 'http://lab.swineson.me/lab/beiwo2podcast/';
 // 是否显示那个测试服务器的提示
 $isDevelopingServer = true;
 // 默认一次读取的单集数
