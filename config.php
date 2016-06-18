@@ -5,15 +5,17 @@
  * @author James Swineson
  * 2015-07-19
 */
-$version = '1.4';
+$version = '1.5';
 $php_curl_class_version = '3.6.7';
 
 // 安装目录
-$install_path = 'http://lab.swineson.me/lab/beiwo2podcast/';
+// 手工设置
+// $install_path = 'http://lab.swineson.me/lab/beiwo2podcast/';
+$install_path = dirname((isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] . '/');
 // 是否显示那个测试服务器的提示
 $isDevelopingServer = true;
 // 默认一次读取的单集数
-$default_limit = 15;
+$default_limit = 30;
 // 是否含有成人内容（'clean' or 'no'）
 $default_explicit = 'clean';
 // 默认一级分类
