@@ -11,8 +11,12 @@ $php_curl_class_version = '3.6.7';
 // 安装目录
 // 手工设置
 // $install_path = 'http://lab.swineson.me/lab/beiwo2podcast/';
-
-$install_path = dirname((isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'] .'/') . '/';
+function endsWith($haystack, $needle) {
+    // search forward starting from end minus needle length characters
+    return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
+}
+$install_path = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+if (endsWith($install_path, ".php")) $install_path = dirname($install_path) . '/';
 // 是否显示那个测试服务器的提示
 $isDevelopingServer = true;
 // 默认一次读取的单集数
