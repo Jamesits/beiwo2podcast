@@ -12,6 +12,7 @@ $php_curl_class_version = '3.6.7';
 // 手工设置
 // $install_path = 'http://lab.swineson.me/lab/beiwo2podcast/';
 function endsWith($haystack, $needle) {
+    // http://stackoverflow.com/a/10473026/2646069
     // search forward starting from end minus needle length characters
     return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
 }
