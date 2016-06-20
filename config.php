@@ -13,7 +13,7 @@ $install_path = 'http://lab.swineson.me/lab/beiwo2podcast/';
 // 是否显示那个测试服务器的提示
 $isDevelopingServer = true;
 // 默认一次读取的单集数
-$default_limit = 30;
+$default_limit = 16;
 // 是否含有成人内容（'clean' or 'no'）
 $default_explicit = 'clean';
 // 默认一级分类
