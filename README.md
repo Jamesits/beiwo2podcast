@@ -29,6 +29,7 @@ Docker 方式：
  2. `docker build .`
  3. `docker run` 对应的镜像
  4. 访问镜像的 80 端口
+
 或者使用 Docker Hub 镜像：[https://hub.docker.com/r/jamesits/beiwo2podcast/]()
 
 需要 PHP 带有 cURL 支持。支持 SAE 等程序目录不可写的服务器。
