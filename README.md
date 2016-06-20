@@ -2,7 +2,7 @@
 
 [被窝声次元](http://www.beiwo.ac)转换到 iTunes 兼容 Podcast (RSS 2.0) 格式的程序。
 
-测试服务器：[http://zhjlab.sinaapp.com/lab/beiwo2podcast-master/](http://zhjlab.sinaapp.com/lab/beiwo2podcast-master/)
+测试服务器：[http://lab.swineson.me/lab/beiwo2podcast/]()
 
 ## 警告
 
@@ -13,8 +13,8 @@
 ## 已知问题
 
  * iTunes 对部分 feed 无法正确读取单集信息
- * 对于未上传任何音频的用户，会读取到不正确的元数据
- * 没有缓存，建议使用第三方订阅服务订阅
+ * 对于未上传任何音频的用户，会读取到不正确的元数据（这是被窝的 bug）
+ * 没有缓存，建议使用第三方订阅服务订阅作为缓存使用
 
 ## 使用方法
 
@@ -29,6 +29,7 @@ Docker 方式：
  2. `docker build .`
  3. `docker run` 对应的镜像
  4. 访问镜像的 80 端口
+或者使用 Docker Hub 镜像：[https://hub.docker.com/r/jamesits/beiwo2podcast/]()
 
 需要 PHP 带有 cURL 支持。支持 SAE 等程序目录不可写的服务器。
 
